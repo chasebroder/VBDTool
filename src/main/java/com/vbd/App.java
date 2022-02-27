@@ -40,7 +40,7 @@ public class App extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(App.class.getResource("/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -59,7 +59,7 @@ public class App extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("view/draft.fxml"));
+            loader.setLocation(App.class.getResource("/draft.fxml"));
             AnchorPane draft = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -73,7 +73,7 @@ public class App extends Application {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             draftHubController controller = new draftHubController(createDraftMode(l));
-            loader.setLocation(App.class.getResource("view/draftHub.fxml"));
+            loader.setLocation(App.class.getResource("/draftHub.fxml"));
             loader.setController(controller);
             BorderPane draftHub = (BorderPane) loader.load();
 
