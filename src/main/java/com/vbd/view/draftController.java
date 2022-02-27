@@ -12,26 +12,26 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
+
 public class draftController {
 	ObservableList<Integer> pickNumList8 = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8);
 	ObservableList<Integer> pickNumList10 = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 	ObservableList<Integer> pickNumList = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-	ObservableList<Integer> pickNumList14 = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-			14);
-	ObservableList<Integer> numTeamsList = FXCollections.observableArrayList(8, 10, 12, 14);
+	ObservableList<Integer> pickNumList14 = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14);
+	ObservableList<Integer> numTeamsList = FXCollections.observableArrayList(8,10,12,14);
 	ObservableList<Integer> qbNumList = FXCollections.observableArrayList(1);
 	ObservableList<Integer> rbNumList = FXCollections.observableArrayList(2);
 	ObservableList<Integer> wrNumList = FXCollections.observableArrayList(2);
-	ObservableList<Integer> benchNumList = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9);
-	ObservableList<Integer> passYdsPerPtList = FXCollections.observableArrayList(5, 10, 15, 20, 25, 30);
-	ObservableList<Integer> TDList = FXCollections.observableArrayList(4, 6);
-	ObservableList<Integer> pointsPerIntList = FXCollections.observableArrayList(0, -1, -2);
-	ObservableList<? extends Number> pointsPerRecList = FXCollections.observableArrayList(0.0, 0.5, 1.0);
-	ObservableList<Integer> pointsPerTwoPtConList = FXCollections.observableArrayList(1, 2, 3, 4, 5);
-
+	ObservableList<Integer> benchNumList = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9);
+	ObservableList<Integer> passYdsPerPtList = FXCollections.observableArrayList(5,10,15,20,25,30);
+	ObservableList<Integer> TDList = FXCollections.observableArrayList(4,6);
+	ObservableList<Integer>  pointsPerIntList = FXCollections.observableArrayList(0, -1, -2);
+	ObservableList<? extends Number>  pointsPerRecList = FXCollections.observableArrayList(0.0, 0.5, 1.0);
+	ObservableList<Integer> pointsPerTwoPtConList = FXCollections.observableArrayList(1,2,3,4,5);
+	
 	private App main;
 	DraftMode dh;
-
+	
 	@FXML
 	private ChoiceBox<Integer> pickNum;
 	@FXML
@@ -70,7 +70,7 @@ public class draftController {
 	private ChoiceBox<Integer> pointsPerTwoPtCon;
 	@FXML
 	private ChoiceBox<Integer> pointsPerSack;
-	@FXML
+	@FXML 
 	private ChoiceBox<Integer> pointsPerDEFInt;
 	@FXML
 	private ChoiceBox<Integer> pointsPerFumbleRec;
@@ -82,7 +82,6 @@ public class draftController {
 	private ChoiceBox<Integer> pointsPerRetTD;
 	@FXML
 	private Button enter;
-
 	@FXML
 	private void initialize() {
 		pickNum.setItems(pickNumList);
@@ -121,7 +120,7 @@ public class draftController {
 		pointsPerFumble.setValue(-2);
 		pointsPerTwoPtCon.setItems(pointsPerTwoPtConList);
 		pointsPerTwoPtCon.setValue(2);
-		pointsPerSack.setItems(rbNumList);
+		pointsPerSack.setItems(qbNumList);
 		pointsPerSack.setValue(1);
 		pointsPerDEFInt.setItems(rbNumList);
 		pointsPerDEFInt.setValue(2);
@@ -138,27 +137,25 @@ public class draftController {
 	public void addDraftMode(DraftMode d) {
 		this.dh = d;
 	}
-
 	@FXML
 	void setPickOptions() {
-		if (numTeams.getValue() == 8) {
+		if(numTeams.getValue()==8) {
 			pickNum.setItems(pickNumList8);
 			pickNum.setValue(1);
 		}
-		if (numTeams.getValue() == 10) {
+		if(numTeams.getValue() ==10) {
 			pickNum.setItems(pickNumList10);
 			pickNum.setValue(1);
 		}
-		if (numTeams.getValue() == 12) {
+		if(numTeams.getValue() == 12) {
 			pickNum.setItems(pickNumList);
 			pickNum.setValue(1);
 		}
-		if (numTeams.getValue() == 14) {
+		if(numTeams.getValue() == 14) {
 			pickNum.setItems(pickNumList14);
 			pickNum.setValue(1);
 		}
 	}
-
 	@FXML
 	private void enterSettings() throws IOException {
 		// main.createLeague(pickNum.getValue(), numeams.getValue(), qbNum.getValue(),
@@ -167,15 +164,13 @@ public class draftController {
 				wrNum.getValue(), teNum.getValue(), flexNum.getValue(), 1, 1, benchNum.getValue(),
 				qbNum.getValue() + rbNum.getValue() + wrNum.getValue() + teNum.getValue() + flexNum.getValue() + 2
 						+ benchNum.getValue(),
-				1.0 / passYdsPerPt.getValue(), passTD.getValue(), pointsPerInt.getValue(),
-				1.0 / rushYdsPerPt.getValue(), rushTD.getValue(), pointsPerRec.getValue(), 1.0 / recYdsPerPt.getValue(),
-				pointsPerRecTD.getValue(),
+				 1.0 / passYdsPerPt.getValue(), passTD.getValue(), pointsPerInt.getValue(),
+				1.0 /  rushYdsPerPt.getValue(), rushTD.getValue(), pointsPerRec.getValue(), 1.0 / recYdsPerPt.getValue(), pointsPerRecTD.getValue(), 
 				pointsPerFumble.getValue(), pointsPerTwoPtCon.getValue(), 1, 3, pointsPerSack.getValue(),
-				pointsPerDEFInt.getValue(), pointsPerFumbleRec.getValue(), pointsPerSafety.getValue(),
-				pointsPerDefTD.getValue(), pointsPerRetTD.getValue(),
+				pointsPerDEFInt.getValue(), pointsPerFumbleRec.getValue(), pointsPerSafety.getValue(), pointsPerDefTD.getValue(), pointsPerRetTD.getValue(), 
 				10.0, 8.0, 6.0, 2.0, 1.0, 0.0);
-		// System.out.print(l1.passPtsPerYd);
-		// main.createDraftMode(l1);
+//		System.out.print(l1.passPtsPerYd);
+		//main.createDraftMode(l1);
 		main.showDraftHub(l1);
 	}
 

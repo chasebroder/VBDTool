@@ -4,11 +4,9 @@ import javafx.application.Application;
 import java.io.IOException;
 
 import com.vbd.model.*;
+import com.vbd.model.DraftMode;
+import com.vbd.view.draftController;
 import com.vbd.view.draftHubController;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -16,6 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList; 
+import org.jsoup.Jsoup;  
+import org.jsoup.nodes.Document; 
 
 public class App extends Application {
 
@@ -99,7 +99,7 @@ public class App extends Application {
     	DraftMode tempD = new DraftMode();
     	ArrayList<Player> tempU = new ArrayList<Player>();
     	//League tempL = new League(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, 0, 0, null, 0, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        Document doc = Jsoup.connect("https://www.fantasypros.com/nfl/projections/qb.php?week=draft").get();
+        Document doc = Jsoup.connect("https://www.fantasypros.com/nfl/projections/qb.php?week=draft").get();  
         //String title = doc.title();  
         //System.out.println("title is: " + title);  
         int i = 0;
@@ -185,23 +185,23 @@ public class App extends Application {
         	t++;
         	receptionsT +=5;
         }
-        Document docDEF = Jsoup.connect("http://www.fftoday.com/rankings/playerproj.php?PosID=99&LeagueID=1").get();
-    	int r = 0;
-    	int defIdx = 1;
-    	while (r < 20) {
-    		String name = docDEF.select("td.sort1").get(defIdx).text();
-    		double sack = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 2).text());
-    		double fumRec = Double.parseDouble(docDEF.select("td.sort1").get(defIdx+ 3).text());
-    		double ints = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 4).text());
-    		double defTD = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 5).text());
-    		double ptsAllowed = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 6).text());
-    		double safety = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 9).text());
-    		double retTD = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 10).text());
-    		//System.out.println(name + " " + sack + " " + fumRec + " " + ints + " " + defTD + " " + ptsAllowed + " " + safety + " " + retTD);
-    		defIdx += 13;
-    		r++;
-    		tempU.add(tempD.createUndraftedDEF(name, l, sack, ints, fumRec, safety, defTD, retTD, ptsAllowed));
-    	}
+        // Document docDEF = Jsoup.connect("http://www.fftoday.com/rankings/playerproj.php?PosID=99&LeagueID=1").get();
+    	// int r = 0;
+    	// int defIdx = 1;
+    	// while (r < 20) {
+    	// 	String name = docDEF.select("td.sort1").get(defIdx).text();
+    	// 	double sack = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 2).text());
+    	// 	double fumRec = Double.parseDouble(docDEF.select("td.sort1").get(defIdx+ 3).text());
+    	// 	double ints = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 4).text());
+    	// 	double defTD = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 5).text());
+    	// 	double ptsAllowed = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 6).text());
+    	// 	double safety = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 9).text());
+    	// 	double retTD = Double.parseDouble(docDEF.select("td.sort1").get(defIdx + 10).text());
+    	// 	//System.out.println(name + " " + sack + " " + fumRec + " " + ints + " " + defTD + " " + ptsAllowed + " " + safety + " " + retTD);
+    	// 	defIdx += 13;
+    	// 	r++;
+    	// 	tempU.add(tempD.createUndraftedDEF(name, l, sack, ints, fumRec, safety, defTD, retTD, ptsAllowed));
+    	// }
         Document docK = Jsoup.connect("https://www.fantasypros.com/nfl/projections/k.php?week=draft").get();
         int k = 0;
         int indxK = 0;
