@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.barolick.VBD.view.draftController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="195.0" layoutY="14.0" text="Enter League and Draft Settings" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="195.0" AnchorPane.topAnchor="14.0" />
+      <Button fx:id="enter" layoutX="568.0" layoutY="723.0" mnemonicParsing="false" onAction="#enterSettings" text="Enter" AnchorPane.leftAnchor="568.0" AnchorPane.rightAnchor="577.0" AnchorPane.topAnchor="723.0" />
+      <GridPane layoutX="95.0" layoutY="76.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="76.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="League Size" />
+            <Label text="Your Pick Number" GridPane.rowIndex="1" />
+            <Label text="Number of QBs" GridPane.rowIndex="2" />
+            <Label text="Number of RBs" GridPane.rowIndex="3" />
+            <Label text="Number of WRs" GridPane.rowIndex="4" />
+            <Label text="Number of TEs" GridPane.rowIndex="5" />
+            <Label text="Points Per Rush TD" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="Points Per Reception" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Receiving Yards Per Point" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Points Per Receiving TD" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="Points Per Fumble" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label text="Points Per 2Pt Conv." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label text="Number of QB/RB/TE" GridPane.rowIndex="6" />
+            <Label text="Points Per DEF Sack" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label text="Bench Size" GridPane.rowIndex="7" />
+            <Label text="Points Per DEF Int" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label text="Passing Yards Per Point" GridPane.rowIndex="8" />
+            <Label text="Points Per Fumble Recovered " GridPane.columnIndex="2" GridPane.rowIndex="8">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label text="Points Per Pass TD" GridPane.rowIndex="9" />
+            <Label text="Points Per Safety" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Label text="Points Per Int" GridPane.rowIndex="10" />
+            <Label text="Points Per DEF TD" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <Label text="Rushing Yards Per Point" GridPane.rowIndex="11" />
+            <Label text="Points Per Ret TD" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+            <ChoiceBox fx:id="numTeams" onAction="#setPickOptions" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="pickNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="qbNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="rbNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="wrNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="teNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="flexNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ChoiceBox fx:id="benchNum" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ChoiceBox fx:id="passYdsPerPt" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <ChoiceBox fx:id="passTD" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <ChoiceBox fx:id="pointsPerInt" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <ChoiceBox fx:id="rushYdsPerPt" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <ChoiceBox fx:id="rushTD" prefWidth="150.0" GridPane.columnIndex="3" />
+            <ChoiceBox fx:id="pointsPerRec" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="recYdsPerPt" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="pointsPerRecTD" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="pointsPerFumble" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="pointsPerTwoPtCon" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="pointsPerSack" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <ChoiceBox fx:id="pointsPerDEFInt" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <ChoiceBox fx:id="pointsPerFumbleRec" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <ChoiceBox fx:id="pointsPerSafety" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <ChoiceBox fx:id="pointsPerDefTD" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <ChoiceBox fx:id="pointsPerRetTD" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
