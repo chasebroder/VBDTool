@@ -3,7 +3,7 @@ package com.vbd.model;
 import java.util.ArrayList;
 
 public class Team {
-  public ArrayList<Player> roster; // list of players on your team
+  ArrayList<Player> roster; // list of players on your team
   public ArrayList<Player> starters; // list of starters on your team
   public ArrayList<Player> bench; // list of players on your bench
   int qbs; // number of quarterbacks on your team
@@ -39,7 +39,7 @@ public class Team {
     }
     // double dispatch to determine if player starter or bench
     p.determineRole(this, l);
-    l.draftPickNum += (l.numTeams - l.draftPickNum % l.numTeams) * 2 + 1;
+    l.pickNum = (2*l.numTeams * ((l.draftPickNum-1)/l.numTeams + 1))+(1-l.pickNum);
   }
 
   //can player in this position be drafted onto team?
@@ -61,7 +61,6 @@ public class Team {
       player++;
     }
   }
-
   public int numRB() {
 	  return this.rbs;
   }

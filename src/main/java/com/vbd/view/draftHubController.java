@@ -70,7 +70,7 @@ public class draftHubController {
 	ObservableList<Player> addPlayers(ObservableList<Player> oL) {
 		for (Player p : d.undrafted){
 			if (!p.drafted)
-			oL.add(p);
+			    oL.add(p);
 		}
 		return oL;
 		

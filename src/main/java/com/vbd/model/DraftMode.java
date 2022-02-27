@@ -14,10 +14,8 @@ public class DraftMode {
 	ArrayList<Player> DEFUndrafted;
 	public League league;
 	public Team myTeam;
-
-	public DraftMode() {
-	}
-
+	
+	public DraftMode() {}
 	public DraftMode(ArrayList<Player> undrafted, League league, Team myTeam) {
 		this.undrafted = undrafted;
 		this.league = league;
@@ -46,9 +44,9 @@ public class DraftMode {
 		this.heapBuildX();
 		this.heapSortX();
 	}
-
 	public void createUndrafted(ArrayList<Player> list) {
-
+		//not yet implemented
+		
 	}
 
 	// EFFECT: creates a new quarterback and adds it to list of undrafted players
@@ -91,31 +89,21 @@ public class DraftMode {
 	}
 
 	// Effect: Adds all the Players to a list of undrafted players
-	public QB createUndraftedQB(String name, League l, double passYds, double passTds, double rushYds, double rushTds,
-			double passInts, double fumbles, double twoPtCon) {
-		return new QB(name, l, passYds, passTds, rushYds, rushTds, passInts, fumbles, twoPtCon);
+	public QB createUndraftedQB(String name, League l, double passYds, double passTds, double rushYds, double rushTds, double passInts, double fumbles, double twoPtCon) {
+		return new QB(name, l, passYds, passTds, rushYds, rushTds, passInts,fumbles, twoPtCon);
 	}
-
-	public RB createUndraftedRB(String name, League l, double rushYds, double rushTDs, double receptions, double recYds,
-			double recTDs, double fumbles, double twoPtCon) {
+	public RB createUndraftedRB(String name, League l, double rushYds, double rushTDs, double receptions, double recYds, double recTDs, double fumbles, double twoPtCon) {
 		return new RB(name, l, rushYds, rushTDs, receptions, recYds, recTDs, fumbles, twoPtCon);
 	}
-
-	public WR createUndraftedWR(String name, League l, double rushYds, double rushTDs, double receptions, double recYds,
-			double recTDs, double fumbles, double twoPtCon) {
+	public WR createUndraftedWR(String name, League l, double rushYds, double rushTDs, double receptions, double recYds, double recTDs, double fumbles, double twoPtCon) {
 		return new WR(name, l, rushYds, rushTDs, receptions, recYds, recTDs, fumbles, twoPtCon);
 	}
-
-	public TE createUndraftedTE(String name, League l, double rushYds, double rushTDs, double receptions, double recYds,
-			double recTDs, double fumbles, double twoPtCon) {
+	public TE createUndraftedTE(String name, League l, double rushYds, double rushTDs, double receptions, double recYds, double recTDs, double fumbles, double twoPtCon) {
 		return new TE(name, l, rushYds, rushTDs, receptions, recYds, recTDs, fumbles, twoPtCon);
 	}
-
-	public DEF createUndraftedDEF(String name, League l, double sack, double ints, double fumRec, double safety,
-			double defTD, double retTD, double ptsAllowed) {
+	public DEF createUndraftedDEF(String name, League l, double sack, double ints, double fumRec, double safety, double defTD, double retTD, double ptsAllowed) {
 		return new DEF(name, l, sack, ints, fumRec, safety, defTD, retTD, ptsAllowed);
 	}
-
 	public K createUndraftedK(String name, League l, double xPT, double FG) {
 		return new K(name, l, xPT, FG);
 	}
@@ -304,7 +292,7 @@ public class DraftMode {
 				p.xValue = p.xValue * (1 - (this.myTeam.wrs - 1) * 0.2);
 			}
 			if ((p instanceof TE) && this.myTeam.flex == 1 && this.myTeam.tes >= 1) {
-				p.xValue = p.xValue * (1 - this.myTeam.tes * 0.2);
+				p.xValue = p.xValue *(1 - this.myTeam.tes * 0.2);
 			}
 			if ((p instanceof K) && this.myTeam.k >= 1) {
 				p.xValue = p.xValue * (1 - this.myTeam.k * 0.2);
@@ -328,7 +316,7 @@ public class DraftMode {
 				if (this.myTeam.bench.size() < this.league.benchNum) {
 					this.myTeam.draftPlayer(p, this.league);
 				}
-				// this.myTeam.draftPlayer(p, this.league);
+				//this.myTeam.draftPlayer(p, this.league);
 				this.needFactor();
 				this.heapBuildX();
 				this.heapSortX();

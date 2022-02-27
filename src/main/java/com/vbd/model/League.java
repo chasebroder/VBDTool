@@ -1,7 +1,9 @@
 package com.vbd.model;
 
+import java.util.ArrayList;
+
 public class League {
-	public int draftPickNum; // your pick
+	public int draftPickNum;
 	public int pickNum;
 	public int numTeams;
 	public int qbNum;
